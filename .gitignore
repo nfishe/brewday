@@ -1,8 +1,11 @@
 .vscode/settings.json
 
 # Bazel
-**/bazel-bin/**
-**/bazel-brewday/**
-**/bazel-genfiles/**
-**/bazel-out/**
-**/bazel-testlogs/**
+
+bazel-bin/**
+bazel-brewday/**
+bazel-genfiles/**
+bazel-out/**
+bazel-testlogs/**
+
+third_party/deno-v0.2.5

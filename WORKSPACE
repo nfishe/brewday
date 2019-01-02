@@ -21,6 +21,29 @@ docker_pull(
 
 docker_repositories()
 
+git_repository(
+    name = "build_bazel_rules_nodejs",
+    remote = "https://github.com/bazelbuild/rules_nodejs.git",
+    tag = "0.16.4",
+)
+
+load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
+rules_nodejs_dependencies()
+
+load(
+    "@build_bazel_rules_nodejs//:defs.bzl", 
+    "node_repositories",
+    "yarn_install"
+)
+node_repositories(package_json = ["//:package.json"])
+
+yarn_install(
+    name = "npm",
+    package_json = "//:package.json",
+    yarn_lock = "//:yarn.lock",
+    data = ["//:tools/yarn/check-yarn.js"]
+)
+
 new_local_repository(
     name = "deno",
     path = "third_party/deno-v0.2.5",
