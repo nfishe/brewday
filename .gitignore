@@ -1,1 +1,8 @@
 .vscode/settings.json
+
+# Bazel
+**/bazel-bin/**
+**/bazel-brewday/**
+**/bazel-genfiles/**
+**/bazel-out/**
+**/bazel-testlogs/**
